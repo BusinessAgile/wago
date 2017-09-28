@@ -1,11 +1,110 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+<!-- Block body page -->
+    
+    <!-- Block Business Agile section -->
+    <section class="row home-section white">
+        <div class="section-picture col-lg-3 offset-lg-1 col-md-10 offset-md-1">
+    
+        </div>
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 text-md-center">
+            <h1 class="section-title">Business Agile</h1>
+            <h5>Partenaire de votre réussite technique</h5>
+        </div>
+    </section>
+    
+    
+    <!-- Block Elsa section -->
+    <div class="row border border-green">
+        <div class="col-12 white"></div>
+        <div class="col-12 green" id="elsa-section"></div>
+    </div>
+    <section class="row home-section green align-right">
+        <div class="col-lg-5 offset-lg-1 col-md-10 offset-md-1">
+            <h2 class="section-title">Elsa</h2>
+            <h5>Restez concentré sur votre coeur de métier</h5>
+            <p>Chaque jour vous effectuez des dizaines de petites tâches sans valeur mais absolument nécessaires.</p>
+            <p>Nos assistants sont fait pour vous aider à traiter le plus efficacement possible afin de vous concentrer
+            sur l'essentiel : votre métier.</p>
+            <a href="https://elsa.pro/" type="a" class="green-btn btn btn-light">Assistant virtuel</a>
+        </div>
+        <div class="section-picture col-lg-5 offset-lg-0 col-md-10 offset-md-1">
+            <img src="{% static 'img/elsa-connect.png' %}"/>
+        </div>
+    </section>
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).</p>
 
-    <p>If you haven't already given the documentation a read, head over to <a href="http://docs.wagtail.io/">http://docs.wagtail.io</a> to start building on Wagtail</p>
-{% endblock %}
+    <!-- Block facility management and Hosting section -->
+    <div class="row border border-yellow align-left">
+        <div class="col-12 green"></div>
+        <div class="col-12 yellow" id="itmngt-section"></div>
+    </div>
+    <section class="row reverse-row home-section yellow">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5 offset-lg-0 col-md-10 offset-md-0">
+            <h2 class="section-title">Infogérance Hébergement</h2>
+            <h5>Une infrastructure à votre service</h5>
+            <p>Nos experts systèmes sont là pour vous conseiller et construire avec vous l'infrastructure 
+            la plus performante et sécurisée en fonction de votre budget et de vos besoins spécifiques.</p>
+            <a href="#" type="a" class="btn btn-dark disabled">Découvrir</a>
+        </div>
+        <div class="section-picture col-lg-5 offset-lg-1 col-md-10 offset-md-1">
+            <img src="{% static 'img/pic-itmngt.jpg' %}"/>
+        </div>
+    </section>
+
+    <!-- Block Developpement section -->
+    <div class="row border border-orange">
+        <div class="col-12 yellow"></div>
+        <div class="col-12 orange" id="dev-section"></div>
+    </div>
+    <section class="row home-section orange align-right">
+        <div class="col-lg-5 offset-lg-1 col-md-10 offset-md-1">
+            <h2 class="section-title">Développement</h2>
+            <h5>Donner vie à vos projets</h5>
+            <p>Spécialisés en développement Python, nous travaillons avec notre réseau de partenaires
+            afin de vous apporter toute l'expertise nécessaire à votre réussite.</p>
+            <a href="#" type="a" class="btn btn-light disabled">Développement</a>
+        </div>
+        <div class="section-picture col-lg-5 col-md-10 offset-md-1">
+    
+        </div>
+    </section>
+
+    <!--Block Contact Form -->
+    <div class="row border border-white">
+        <div class="col-12 orange"></div>
+        <div class="col-12 white" id="contact-section"></div>
+    </div>
+    <section class="container home-section">
+        <h2 class="section-title text-center">Un projet, une question?</h2>
+        <h5 class="text-center">Par chat ou par mail, nous sommes à votre écoute</h5>
+        <div id="success"></div>
+        <div id="info"></div>
+        <form action="" method="post" id="contactform" data-form-title="Contacter Business Agile">
+            <div class="form-group">
+            <div>
+                <input class="form-control" type="text" placeholder="Votre nom" id="name">
+            </div>
+            <div>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
+                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email avec quelqu'un d'autre.</small>
+            </div>
+            <div>
+                <input class="form-control" type="text" placeholder="Votre sujet" id="subject">
+            </div>
+            <div>
+                <textarea class="form-control" id="message" placeholder="Votre message" rows="3"></textarea>
+            </div>
+            <div class="text-center">
+                <input id="submit" type="submit" class="btn btn-primary" value="Envoyer">
+            </div>
+            </div>
+        </form>
+    </section>
+{% endblock content %}

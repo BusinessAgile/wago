@@ -27,20 +27,77 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/wago.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/media.css' %}">
+
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="container-fluid {% block body_class %}{% endblock %}">
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7C5N9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <!-- Block header -->
         {% wagtailuserbar %}
 
-        {% block content %}{% endblock %}
+        {% block header %}
+            <header class="row">
+                <nav class="col-12 navbar navbar-toggleable-md navbar-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'img/logo-business-agile-6.2_blanc.png' %}" width="96" height="56" class="d-inline-block align-middle" alt="Business Agile">
+                    </a>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                        <div class="nav navbar-nav">
+                            <a class="nav-item nav-link active" href="#">Accueil <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#elsa-section">Elsa</a>
+                            <a class="nav-item nav-link" href="#itmngt-section">Hébergement-Infogérance</a>
+                            <a class="nav-item nav-link" href="#dev-section">Développement</a>
+                            <a class="nav-item nav-link" href="#">Blog</a>
+                            <a class="nav-item nav-link" href="#contact-section">Contact</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        {% endblock header %}
+        
+        {% block content %}
+        {% endblock content %}
+        
+        {% block footer %}
+            <!-- Block footer -->
+            <footer class="row">
+                <div class="footer-section align-left col-lg-3 offset-lg-1 col-md-4 col-sm-6">
+                    <h2>Business Agile</h2>
+                    <p>60, rue Chardon Lagache<br>
+                    75016 PARIS
+                    </p>
+                    <p>Contactez nous au <a href="tel:0630164559">06.30.16.45.59.</a></p>
+                </div>
+                <div class="footer-section col-lg-4 col-md-4 col-sm-6">
+                    <h2>Nos derniers articles</h2>
+                    <strong>Seront bientôt ici!</strong>
+                </div>
+                <div class="footer-section align-right col-lg-3 col-md-4 offset-md-0 col-sm-6 offset-sm-3">
+                    <h2>Suivez nous sur</h2>
+                    <a href="https://www.linkedin.com/company/businessagile"><img class="social-logo" src="{% static 'img/social/linkedin.svg' %}"></a>
+                    <a href="https://github.com/BusinessAgile"><img class="social-logo" src="{% static 'img/social/github.svg' %}"></a>
+                    <a href="https://twitter.com/Business_Agile"><img class="social-logo" src="{% static 'img/social/twitter.svg' %}"></a>
+                </div>
+                <div class="col-lg-12">
+                    <p class="footer-section">Handcrafted in Paris by <a href="https://businessagile.tech/">Business Agile Tech</a></p>
+                </div>
+            </footer>
+        {% endblock footer %}
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/wago.js' %}"></script>

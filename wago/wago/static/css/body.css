@@ -1,0 +1,91 @@
+.home-section {
+	padding: 50px 0;
+}
+
+.reverse-row {
+	flex-direction: row-reverse;
+}
+
+.section-title {
+	text-transform: uppercase;
+}
+
+.section-picture img{
+	height: 300px;
+	margin: 20px;
+}
+
+.border {
+	background-size: contain;
+	background-repeat-y: no-repeat; 
+	z-index: 10;
+}
+
+.section-picture {
+	text-align: center;
+}
+
+.white {
+	background-color: rgba(255, 255, 255, 1);
+    color: rgb(23, 73, 121);
+	z-index: -1;
+}
+
+.border-green {
+	background-image: url(../img/fractal/green.png);
+}
+
+.green {
+	background-color: rgba(90, 226, 184, 1);
+	color: rgb(255, 255, 255);
+	z-index: -1;
+}
+
+.green-btn {
+	background-color: rgb(255, 255, 255);
+	color: rgba(90, 226, 184, 1);
+}
+
+.border-yellow {
+	background-image: url(../img/fractal/yellow.png);
+}
+
+.yellow {
+	background-color: rgba(246, 249, 187, 1);
+	color: rgb(23, 73, 121);
+	z-index: -1;
+}
+
+.border-orange {
+	background-image: url(../img/fractal/orange.png);
+}
+
+.orange {
+	background-color: rgba(255, 113, 80, 1);
+	color: rgb(255, 255, 255);
+	z-index: -1;
+}
+
+.border-white {
+	background-image: url(../img/fractal/white.png);
+}
+
+
+/*FORM*/
+.textarea-field {
+	height: 150px;
+}
+
+form .btn {
+	margin: 10px 0;
+}
+
+form div {
+	margin:	10px 0;
+}
+
+
+/*green  rgba(90, 226, 184, 1)
+blue   rgba(23, 73, 121, 1)
+yellow rgba(246, 249, 187, 1)
+red    rgba(255, 113, 80, 1)*/
