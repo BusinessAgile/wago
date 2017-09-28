@@ -131,6 +131,7 @@ USE_TZ = True
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'yarn.finders.YarnFinder',
 ]
 
 STATICFILES_DIRS = [
@@ -151,3 +152,8 @@ WAGTAIL_SITE_NAME = "Business Agile"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://businessagile.dev'
+
+
+
+# Yarn integration
+YARN_ROOT_PATH = BASE_DIR
