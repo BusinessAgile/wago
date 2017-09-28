@@ -173,3 +173,6 @@ venv.bak/
 .mypy_cache/
 
 # End of https://www.gitignore.io/api/python,django,node
+
+# Ignore collectstatic generated files
+wago/static
