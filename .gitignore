@@ -176,3 +176,6 @@ venv.bak/
 
 # Ignore collectstatic generated files
 wago/static
+
+# Ignore VS Code files
+.vscode
