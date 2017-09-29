@@ -15,9 +15,9 @@
 	margin: 20px;
 }
 
-.border {
+.section-border {
+	height: 250px;
 	background-size: contain;
-	background-repeat-y: no-repeat; 
 	z-index: 10;
 }
 
@@ -31,7 +31,7 @@
 	z-index: -1;
 }
 
-.border-green {
+.section-border-green {
 	background-image: url(../img/fractal/green.png);
 }
 
@@ -46,7 +46,7 @@
 	color: rgba(90, 226, 184, 1);
 }
 
-.border-yellow {
+.section-border-yellow {
 	background-image: url(../img/fractal/yellow.png);
 }
 
@@ -56,7 +56,7 @@
 	z-index: -1;
 }
 
-.border-orange {
+.section-border-orange {
 	background-image: url(../img/fractal/orange.png);
 }
 
@@ -66,7 +66,7 @@
 	z-index: -1;
 }
 
-.border-white {
+.section-border-white {
 	background-image: url(../img/fractal/white.png);
 }
 
