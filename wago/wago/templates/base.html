@@ -75,25 +75,25 @@
         
         {% block footer %}
             <!-- Block footer -->
-            <footer class="row">
-                <div class="footer-section align-left col-lg-3 offset-lg-1 col-md-4 col-sm-6">
+            <footer class="row footer-section">
+                <div class="text-md-left col-md">
                     <h2>Business Agile</h2>
                     <p>60, rue Chardon Lagache<br>
                     75016 PARIS
                     </p>
                     <p>Contactez nous au <a href="tel:0630164559">06.30.16.45.59.</a></p>
                 </div>
-                <div class="footer-section col-lg-4 col-md-4 col-sm-6">
+                <div class="col-md">
                     <h2>Nos derniers articles</h2>
                     <strong>Seront bientôt ici!</strong>
                 </div>
-                <div class="footer-section align-right col-lg-3 col-md-4 offset-md-0 col-sm-6 offset-sm-3">
+                <div class="text-md-right col-md">
                     <h2>Suivez nous sur</h2>
                     <a href="https://www.linkedin.com/company/businessagile"><img class="social-logo" src="{% static 'img/social/linkedin.svg' %}"></a>
                     <a href="https://github.com/BusinessAgile"><img class="social-logo" src="{% static 'img/social/github.svg' %}"></a>
                     <a href="https://twitter.com/Business_Agile"><img class="social-logo" src="{% static 'img/social/twitter.svg' %}"></a>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-12">
                     <p class="footer-section">Handcrafted in Paris by <a href="https://businessagile.tech/">Business Agile Tech</a></p>
                 </div>
             </footer>
@@ -101,6 +101,9 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/wago.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js'"></script>
+        <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'popper.js/dist/popper.min.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
