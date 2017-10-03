@@ -10,19 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+# Default imports
 from __future__ import absolute_import, unicode_literals
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+# Dotenv imports
+from os.path import join
+from dotenv import load_dotenv
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 ### Dotenv loading ###
-from os.path import join, dirname
-from dotenv import load_dotenv
-
-dotenv_path = join(PROJECT_DIR, '.env')
+dotenv_path = join(PROJECT_DIR, '.env.dev')
 load_dotenv(dotenv_path)
 
 
@@ -57,6 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

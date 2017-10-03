@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load wagtailcore_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -70,37 +71,5 @@
         <div class="section-picture col-md-5 mr-md-auto">
     
         </div>
-    </section>
-
-    <!--Block Contact Form -->
-    <div class="row section-border section-border-white">
-        <div class="col-12 orange"></div>
-        <div class="col-12 white" id="contact-section"></div>
-    </div>
-    <section class="container home-section">
-        <h2 class="section-title text-center">Un projet, une question?</h2>
-        <h5 class="text-center">Par chat ou par mail, nous sommes à votre écoute</h5>
-        <div id="success"></div>
-        <div id="info"></div>
-        <form action="" method="post" id="contactform" data-form-title="Contacter Business Agile">
-            <div class="form-group">
-            <div>
-                <input class="form-control" type="text" placeholder="Votre nom" id="name">
-            </div>
-            <div>
-                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Votre email">
-                <small id="emailHelp" class="form-text text-muted">Nous ne partagerons jamais votre email avec quelqu'un d'autre.</small>
-            </div>
-            <div>
-                <input class="form-control" type="text" placeholder="Votre sujet" id="subject">
-            </div>
-            <div>
-                <textarea class="form-control" id="message" placeholder="Votre message" rows="3"></textarea>
-            </div>
-            <div class="text-center">
-                <input id="submit" type="submit" class="btn btn-primary" value="Envoyer">
-            </div>
-            </div>
-        </form>
     </section>
 {% endblock content %}

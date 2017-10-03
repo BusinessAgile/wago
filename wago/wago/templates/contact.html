@@ -1,0 +1,18 @@
+{% load bootstrap4 %}
+
+<!--Block Contact Form -->
+<div class="row section-border section-border-white">
+    <div class="col-12 orange"></div>
+    <div class="col-12 white" id="contact-section"></div>
+</div>
+<section class="row home-section">
+    <div class="col-lg-6 mx-lg-auto">
+        <h2 class="section-title text-center">Un projet, une question?</h2>
+        <h5 class="text-center">Par chat ou par mail, nous sommes à votre écoute</h5>
+        <form action="." method="post">
+            {% csrf_token %}
+            {% bootstrap_form form show_label=False %}
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </div>
+</section>
