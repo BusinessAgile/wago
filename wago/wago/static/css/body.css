@@ -11,8 +11,8 @@
 }
 
 .section-picture img{
-	height: 300px;
-	margin: 20px;
+	max-height: 340px;
+	padding: 20px;
 }
 
 .section-border {
