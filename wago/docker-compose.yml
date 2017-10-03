@@ -1,0 +1,66 @@
+version: '2.1'
+
+volumes:
+  static: {}
+  dbdata: {}
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: wago_dev
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    healthcheck:
+        test: ["CMD", "sudo -u postgres bash -c", "psql 'select 1'"]
+        interval: 3s
+        timeout: 2s
+        retries: 5
+  smtp:
+    image: mwader/postfix-relay
+    restart: always
+    environment:
+      - POSTFIX_myhostname=businessagile.eu
+
+  web:
+    # Docker hack to wait until Postgres is up, then run stuff.
+    command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1;done; /code/manage.py migrate --no-input && /code/manage.py collectstatic --no-input && while :; do /code/manage.py runserver 0.0.0.0:8000; sleep 1; done"
+    image: businessagile/wago:0.1
+    restart: always
+    # build: .
+    ports:
+      - 80:8000
+    volumes:
+      - .:/code
+      - static:/code/static
+    depends_on:
+      - db
+      - smtp
+    healthcheck:
+      test: ['CMD', "curl", "-q", "http://localhost/"]
+      interval: 3s
+      timeout: 1s
+      retries: 10
+    environment:
+      PG_NAME: wago_dev
+      PG_USER: postgres
+      PG_PASSWORD: password
+      PG_HOST: db
+      IN_DOCKER: 1
+      DEBIAN_FRONTEND: noninteractive
+
+  # webserver:
+  #   image: jumanjiman/caddy
+  #   restart: always
+  #   user: root
+  #   depends_on:
+  #     - web
+  #   ports:
+  #     - "80:8000"
+  #     - "443:8443"
+  #   volumes:
+  #     - static:/static
+  #   command: -port 8000 -host 0.0.0.0 -root /static "proxy / web:8000 { cors }" 
