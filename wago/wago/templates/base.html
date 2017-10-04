@@ -49,15 +49,15 @@
 
         {% block header %}
             <header class="row">
-                <nav class="col-12 navbar navbar-expand-md navbar-inverse">
-                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <nav class="col-12 navbar-expand-lg navbar navbar-dark">
                     <a class="navbar-brand" href="#">
                         <img src="{% static 'img/logo-business-agile-6.2_blanc.png' %}" width="96" height="56" class="d-inline-block align-middle" alt="Business Agile">
                     </a>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbar">
-                        <div class="nav navbar-nav">
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse justify-content-end" id="navbar">
+                        <div class="navbar-nav">
                             <a class="nav-item nav-link active" href="#">Accueil <span class="sr-only">(current)</span></a>
                             <a class="nav-item nav-link" href="#elsa-section">Elsa</a>
                             <a class="nav-item nav-link" href="#itmngt-section">Hébergement-Infogérance</a>
@@ -105,9 +105,9 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/wago.js' %}"></script>
-        <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'jquery/dist/jquery.slim.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'popper.js/dist/popper.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
