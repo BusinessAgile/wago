@@ -1,7 +1,8 @@
-version: '2.1'
+version: '3'
 
 volumes:
   static: {}
+  code: {}
   dbdata: {}
 
 services:
@@ -12,10 +13,11 @@ services:
     environment:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: wago_dev
+    user: postgres
     volumes:
       - dbdata:/var/lib/postgresql/data
     healthcheck:
-        test: ["CMD", "sudo -u postgres bash -c", "psql 'select 1'"]
+        test: ["CMD", "pg_isready"]
         interval: 3s
         timeout: 2s
         retries: 5
@@ -27,18 +29,18 @@ services:
 
   web:
     # Docker hack to wait until Postgres is up, then run stuff.
-    command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1;done; /code/manage.py migrate --no-input && /code/manage.py collectstatic --no-input && while :; do /code/manage.py runserver 0.0.0.0:8000; sleep 1; done"
+    command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1;done; /code/manage.py migrate --no-input && /code/manage.py collectstatic --no-input && while :; do /code/manage.py runserver; sleep 1; done"
     image: businessagile/wago:0.1
     restart: always
-    # build: .
+    #build: .
     ports:
       - 80:8000
     volumes:
-      - .:/code
+      - code:/code
       - static:/code/static
-    depends_on:
-      - db
-      - smtp
+    links:
+      - db:db
+      - smtp:smtp
     healthcheck:
       test: ['CMD', "curl", "-q", "http://localhost/"]
       interval: 3s
