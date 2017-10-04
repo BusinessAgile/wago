@@ -14,6 +14,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 from __future__ import absolute_import, unicode_literals
 import os
 
+# Raven import
+import raven
+
 # Dotenv imports
 from os.path import join
 from dotenv import load_dotenv
@@ -58,6 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'raven.contrib.django.raven_compat',
 
     'bootstrap4',
 ]
@@ -160,3 +165,12 @@ BASE_URL = 'http://businessagile.dev'
 
 # Yarn integration
 YARN_ROOT_PATH = BASE_DIR
+
+
+# Raven ssettings
+RAVEN_CONFIG = {
+    'dsn': os.environ.get("SENTRY_DSN"),
+    # If you are using git, you can also automatically configure the
+    # release based on the git info.
+    'release': raven.fetch_git_sha(os.path.dirname(BASE_DIR)),
+}
