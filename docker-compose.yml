@@ -2,7 +2,6 @@ version: '3'
 
 volumes:
   static: {}
-  code: {}
   dbdata: {}
 
 services:
@@ -27,16 +26,23 @@ services:
     environment:
       - POSTFIX_myhostname=businessagile.eu
 
+  nginx:
+    image: registry.cth.businessagile.tech/wago/nginx:0.2
+    build: ./nginx/
+    ports:
+      - 80:80
+    links:
+      - web:web
+    volumes:
+      - static:/static
+
+
   web:
     # Docker hack to wait until Postgres is up, then run stuff.
-    command: bash -c "while ! nc -w 1 -z db 5432; do sleep 0.1;done; /code/manage.py migrate --no-input && /code/manage.py collectstatic --no-input && while :; do /code/manage.py runserver; sleep 1; done"
-    image: businessagile/wago:0.1
+    image: registry.cth.businessagile.tech/businessagile/wago:0.2
     restart: always
-    #build: .
-    ports:
-      - 80:8000
+    build: .
     volumes:
-      - code:/code
       - static:/code/static
     links:
       - db:db
@@ -53,16 +59,3 @@ services:
       PG_HOST: db
       IN_DOCKER: 1
       DEBIAN_FRONTEND: noninteractive
-
-  # webserver:
-  #   image: jumanjiman/caddy
-  #   restart: always
-  #   user: root
-  #   depends_on:
-  #     - web
-  #   ports:
-  #     - "80:8000"
-  #     - "443:8443"
-  #   volumes:
-  #     - static:/static
-  #   command: -port 8000 -host 0.0.0.0 -root /static "proxy / web:8000 { cors }" 

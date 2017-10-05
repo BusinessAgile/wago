@@ -162,6 +162,7 @@ WAGTAIL_SITE_NAME = "Business Agile"
 BASE_URL = 'http://businessagile.dev'
 
 
+SECRET_KEY= os.getenv('SECRET_KEY') or 'kdsjnsdlfb8374234097yholkjdsa'
 
 # Yarn integration
 YARN_ROOT_PATH = BASE_DIR

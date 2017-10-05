@@ -4,7 +4,10 @@ Procfile
 
 *.db
 
+.env*
 .git*
+env* 
+
 
 deploy
 tests
